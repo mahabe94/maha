@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!--Addon's Products Admin Grid-->
+    <!--Define provider class that was used in node dataSource/class-->
+    <virtualType name="VenbhasAddonsDataProductGridDataProvider"
+                 type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">
+                Venbhas\Addons\Model\ResourceModel\Product\Collection
+            </argument>
+        </arguments>
+    </virtualType>
+    <!--It gives all the collected addon's products to the grid -->
+    <type name="Venbhas\Addons\Model\ResourceModel\Product\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">addon_products</argument>
+            <argument name="eventPrefix" xsi:type="string">addons_product_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">product_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Venbhas\Addons\Model\ResourceModel\Product</argument>
+        </arguments>
+    </type>
+    <!--Register our data source ,it gives all the collected data of addon's products to the grid-->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="venbhas_addons_product_listing_data_source" xsi:type="string">
+                    Venbhas\Addons\Model\ResourceModel\Product\Grid\Collection
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

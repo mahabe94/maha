@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">venbhas_addons_productform.venbhas_addons_productform_data_source
+            </item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Product information</item>
+    </argument>
+    <settings>
+        <buttons>
+            <button name="back" class="Venbhas\Addons\Block\Adminhtml\Product\Edit\BackButton"/>
+            <button name="save_and_continue" class="Venbhas\Addons\Block\Adminhtml\Product\Edit\SaveAndContinueButton"/>
+            <button name="delete" class="Venbhas\Addons\Block\Adminhtml\Product\Edit\DeleteButton"/>
+            <button name="reset" class="Venbhas\Addons\Block\Adminhtml\Product\Edit\ResetButton"/>
+            <button name="save" class="Venbhas\Addons\Block\Adminhtml\Product\Edit\SaveButton"/>
+        </buttons>
+        <namespace>venbhas_addons_productform</namespace>
+        <dataScope>data</dataScope>
+        <layout>
+            <navContainerName>left</navContainerName>
+            <type>tabs</type>
+        </layout>
+        <deps>
+            <dep>venbhas_addons_productform.venbhas_addons_productform_data_source</dep>
+        </deps>
+    </settings>
+    <dataSource name="venbhas_addons_productform_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="addons/product/save"/>
+        </settings>
+        <dataProvider class="Venbhas\Addons\Model\Data\Product\DataProvider"
+                      name="venbhas_addons_productform_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <fieldset name="general">
+        <settings>
+            <label translate="true">Addon Product</label>
+        </settings>
+        <field name="product-name" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">addons</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Product Name</label>
+                <dataScope>product_name</dataScope>
+            </settings>
+        </field>
+        <field name="product-sku" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">addons</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">SKU</label>
+                <dataScope>product_sku</dataScope>
+            </settings>
+        </field>
+        <field name="product-price" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">addons</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>text</dataType>
+                <label translate="true">Price</label>
+                <dataScope>price</dataScope>
+            </settings>
+        </field>
+    </fieldset>
+</form>

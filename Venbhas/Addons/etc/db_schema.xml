@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="addon_products" engine="innodb" resource="default" comment="Addon Products Table">
+        <column xsi:type="int" name="id" padding="10" unsigned="true" identity="true" nullable="false"
+                comment="Entity ID"/>
+        <column xsi:type="varchar" name="product_name" length="255" comment="Product Name"/>
+        <column xsi:type="varchar" name="product_sku" length="255" comment="Product SKU"/>
+        <column xsi:type="decimal" name="price" scale="4" precision="12" unsigned="false" nullable="false" default="0"
+                comment="Product Price"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+    </table>
+</schema>

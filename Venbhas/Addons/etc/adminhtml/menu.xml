@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Venbhas_Addons::addons" title="Manage Addons" module="Venbhas_Addons" sortOrder="1"
+             resource="Venbhas_Addons::addons" parent="Magento_Catalog::catalog"/>
+        <add id="Venbhas_Addons::groups" title="Addon Groups" module="Venbhas_Addons" sortOrder="1"
+             action="addons/group" resource="Venbhas_Addons::groups" parent="Venbhas_Addons::addons"/>
+        <add id="Venbhas_Addons::products" title="Addon Products" module="Venbhas_Addons" sortOrder="2"
+             action="addons/product" resource="Venbhas_Addons::products" parent="Venbhas_Addons::addons"/>
+    </menu>
+</config>

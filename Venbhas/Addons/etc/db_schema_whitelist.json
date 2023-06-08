@@ -1,0 +1,17 @@
+{
+    "ox_category_products": {
+        "column": {
+            "id": true,
+            "category_name": true,
+            "created_at": true,
+            "updated_at": true,
+            "created_by": true,
+            "updated_by": true,
+            "status": true,
+            "position": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}
